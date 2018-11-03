@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './style.css'
 
 class App extends Component {
 	constructor(props){
 		super(props);
 		this.state={
-			todos: [],
+			todos: ['item1', 'item2'],
 			input: ''
 		}
 	}
@@ -29,19 +30,19 @@ class App extends Component {
 
 		const todo_map = this.state.todos.map((item, index) => {
 			return(
-				<div key={index}>
+				<div key={index} className="todo-item" >
 					<p> <span>{index}:</span> {item}</p>
 				</div>
 			)
 		})
 
 		return (
-			<div>
-				<form onSubmit={this.handleSubmit} >
-					<label htmlFor="title">Todo:</label>
+			<div className="container" >
+				<form onSubmit={this.handleSubmit}>
+					<label htmlFor="title">Enter a new to-do item: </label>
 					<input onChange={this.handleChange} value={this.state.input} id="title" type="text"/>
 
-					<div>
+					<div className="list-container" >
 						<h3>My to-do list:</h3>
 						{todo_map}
 					</div>
