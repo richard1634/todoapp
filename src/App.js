@@ -39,14 +39,18 @@ class App extends Component {
 		return (
 			<div className="container" >
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="title">Enter a new to-do item: </label>
-					<input onChange={this.handleChange} value={this.state.input} id="title" type="text"/>
-
-					<div className="list-container" >
-						<h3>My to-do list:</h3>
-						{todo_map}
+					<div className="add-group" >
+						<label htmlFor="title">Enter a new to-do item: </label>
+						<input onChange={this.handleChange} value={this.state.input} id="title" type="text"/>
 					</div>
+					
+					<button className="submit-button">Create new to-do item!</button>
 				</form>
+
+				<div className="list-container" >
+					<h3>My to-do list:</h3>
+					{todo_map}
+				</div>
 			</div>
 		);
 	}
